@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 
 
-
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, 
@@ -45,6 +44,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
+        ## reverse(appname:viewname)
         return reverse('blog:post_detail',
                         args=[
                             self.publish.year,
